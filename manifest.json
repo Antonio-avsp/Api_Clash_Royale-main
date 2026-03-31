@@ -1,0 +1,21 @@
+{
+  "name": "Sorteador Clash Royale",
+  "short_name": "Sorteador CR",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0e0e3a",
+  "theme_color": "#0e0e3a",
+  "description": "Sorteie cartas do Clash Royale e crie decks aleatórios.",
+  "icons": [
+    {
+      "src": "https://cdn.royaleapi.com/static/img/cards-150/knight.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.royaleapi.com/static/img/cards-150/pekka.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

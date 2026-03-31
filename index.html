@@ -1,0 +1,52 @@
+<!-- Funcionalidades implementadas:
+
+Adicionada a tag <meta name="viewport"> que é obrigatória para responsividade mobile e nota alta no Lighthouse.
+Adicionada <meta name="description"> para melhorar a nota de SEO no Lighthouse.
+Adicionadas as tags do PWA (manifest e theme-color).
+Adicionado o script de registro do Service Worker. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Sorteador de cartas aleatório do Clash Royale com integração de hardware.">
+    
+    <meta name="theme-color" content="#0e0e3a">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://cdn.royaleapi.com/static/img/cards-150/knight.png"> <title>Clash Royale | Sorteador PWA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://logodownload.org/wp-content/uploads/2017/04/clash-royale-logo.png" alt="Logo do Clash Royale" class="logo">
+            <h1>Sorteador de Cartas</h1>
+        </header>
+        
+        <div id="card-display" class="card-box">
+            <div id="loader" style="display: none;">Carregando Arena...</div>
+            <img id="card-img" src="" alt="Carta Sorteada" style="display: none;">
+            <h2 id="card-name">Clique para começar</h2>
+            <div class="card-details">
+                <p id="card-elixir">Pronto para a batalha!</p>
+            </div>
+        </div>
+
+        <button id="btn-sortear" onclick="sortearCarta()" aria-label="Sortear uma nova carta">Sortear Carta</button>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registrado com sucesso!', reg))
+                    .catch(err => console.error('Erro ao registrar Service Worker:', err));
+            });
+        }
+    </script>
+</body>
+</html>
